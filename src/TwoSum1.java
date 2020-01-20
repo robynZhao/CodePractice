@@ -8,8 +8,8 @@ public class TwoSum1 {
         int targetNum = 9;
 
         int[] result = calculate(numberArray, targetNum);
-        if(result[0] + result[1] == targetNum) {
-            for(int i = 0; i < result.length; i ++) {
+        if (result[0] + result[1] == targetNum) {
+            for (int i = 0; i < result.length; i++) {
                 System.out.print("[" + result[0] + ", " + result[1] + "]");
             }
         } else {
@@ -18,15 +18,32 @@ public class TwoSum1 {
     }
 
     public static int[] calculate(int[] numberArray, int targetNum) {
+//----------O(n^2)-----------------//
+//        int[] result = new int[2];
+//
+//        for(int i = 0; i < numberArray.length - 1; i ++) {
+//            for(int j = i + 1; j < numberArray.length; j ++) {
+//                if (numberArray[i] + numberArray[j] == targetNum) {
+//                    result[0] = i;
+//                    result[1] = j;
+//                }
+//                break;
+//            }
+//        }
+//
+//        return result;
+
         int[] result = new int[2];
 
-        for(int i = 0; i < numberArray.length - 1; i ++) {
-            for(int j = i + 1; j < numberArray.length; j ++) {
-                if (numberArray[i] + numberArray[j] == targetNum) {
-                    result[0] = i;
-                    result[1] = j;
-                }
-                break;
+        Map<Integer, Integer> tempHashMap = new HashMap<>();
+        for (int i = 0; i < numberArray.length; i++) {
+            tempHashMap.put(i, numberArray[i]);
+        }
+
+        for (int i = 0; i < tempHashMap.size() - 1; i++) {
+            if (tempHashMap.containsValue(targetNum - tempHashMap.get(i))) {
+                result[0] = i;
+                //result[1] = tempHashMap.containsValue(targetNum - tempHashMap.get(i));
             }
         }
 
