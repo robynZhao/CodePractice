@@ -4,9 +4,13 @@ public class CousinsInBinaryTree_993 {
     public static void main(String[] args) {
         TreeNode root = new TreeNode();
         root.val = 1;
+        root.left = new TreeNode();
         root.left.val = 2;
+        root.right = new TreeNode();
         root.right.val = 3;
+        root.left.right = new TreeNode();
         root.left.right.val = 4;
+        root.right.right = new TreeNode();
         root.right.right.val = 5;
         int x = 5;
         int y = 4;
@@ -14,7 +18,7 @@ public class CousinsInBinaryTree_993 {
         System.out.println(result);
     }
 
-    public boolean isCousins(TreeNode root, int x, int y) {
+    public static boolean isCousins(TreeNode root, int x, int y) {
         // Level order traversal of a tree is breadth first traversal for the tree
         // travelTree return [parentValue, depth]
 
@@ -30,7 +34,7 @@ public class CousinsInBinaryTree_993 {
         return false;
     }
 
-    public int[] getParentDepth(TreeNode parent, TreeNode root, int target, int depth) {
+    public static int[] getParentDepth(TreeNode parent, TreeNode root, int target, int depth) {
         int result[] = new int[2];
 
         travelTree(parent, root, target, depth, result);
@@ -38,7 +42,7 @@ public class CousinsInBinaryTree_993 {
         return result;
     }
 
-    public void travelTree(TreeNode parent, TreeNode root, int target, int depth, int[] result) {
+    public static void travelTree(TreeNode parent, TreeNode root, int target, int depth, int[] result) {
         if(root.val == target) {
             result[0] = parent.val;
             result[1] = depth;
