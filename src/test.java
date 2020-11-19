@@ -3,34 +3,23 @@ import java.util.*;
 
 public class test {
     public static  void main(String[] args) {
-        int[] arr1 = {1,1,0,0,1};
-        int result1 = solve(arr1.length, arr1);
-        System.out.println(result1);
+        int[] numberArray = {3,2,4};
+        int targetNum = 6;
 
+        // other test data
+        // input = [2, 7, 11, 15], output = 9
+        // input = [3,3], output = 6
 
-        int[] arr2 = {0,0,1};
-        int result2 = solve(arr2.length, arr2);
-        System.out.println(result2);
+        int[] result = twoSum(numberArray, targetNum);
+
+        System.out.print("[" + result[0] + ", " + result[1] + "]");
     }
+     public static int[] twoSum(int[]array, int target) {
+        int[] result = new int[2];
 
-    public static int solve(int n, int[] arr) {
-        int result = 0;
-
-        for(int i = 0; i < n ; i ++) {
-            if (arr[i] == 1 ) {
-                result ++; // operation -- enter
-
-                if (i + 1 < n) {
-                    if(arr[i + 1] ==1) {
-                        result++; // go into next email
-                        i = i + 1;
-                    }
-                } else {
-                    result ++; // operation -- go back list
-                }
-            }
-        }
+        // HashMap<key-number, value-if it has been used (1-yes, 0-no)> hashMap = new HashMap<> ();
+        HashMap<Integer, Integer> hashMap = new HashMap<Integer, Integer> ();
 
         return result;
-    }
+     }
 }
