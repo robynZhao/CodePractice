@@ -20,6 +20,7 @@ public class test {
         // HashMap<key-number, value-if it has been used (1-yes, 0-no)> hashMap = new HashMap<> ();
         HashMap<Integer, Integer> hashMap = new HashMap<Integer, Integer> ();
 
+
         return result;
      }
 }
