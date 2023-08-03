@@ -1,4 +1,4 @@
-public class test2 {
+public class MinFilpToMakeString {
     public static  void main(String[] args) {
         String str = "101011";
         System.out.println(minFlipToMakeStringAlternate(str));
