@@ -1,7 +1,9 @@
-import java.util.*;
-
-public class RampTest {
+public class DeleteANodeFromList {
     public static void main(String[] args) {
 
     }
+
+
 }
+
+

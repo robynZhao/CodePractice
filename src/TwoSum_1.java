@@ -14,11 +14,27 @@ public class TwoSum_1 {
         // input = [2, 7, 11, 15], output = 9
         // input = [3,3], output = 6
 
-        int[] result = twoSum(numberArray, targetNum);
 
+        int[] betterMethod = betterMethod(numberArray, targetNum);
+        if(betterMethod != null) {
+            System.out.println("Better Method: " + "[" + betterMethod[0] + ", " + betterMethod[1] + "]");
+        }
+
+        int[] result = twoSum(numberArray, targetNum);
         System.out.print("[" + result[0] + ", " + result[1] + "]");
     }
+    public static int[] betterMethod(int[] input, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
 
+        for(int i = 0; i < input.length; i ++) {
+            if(!map.containsKey(target - input[i])) {
+                map.put(input[i], i);
+            } else {
+                return new int[]{i, map.get(target - input[i])};
+            }
+        }
+        return null;
+    }
     public static int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
 

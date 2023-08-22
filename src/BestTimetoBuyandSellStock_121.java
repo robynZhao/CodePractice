@@ -20,34 +20,21 @@ public class BestTimetoBuyandSellStock_121 {
     }
 
     public static int maxProfit(int[] prices) {
-        int result = 0;
+        if(prices.length < 2) {
+            return 0;
+        }
 
-        // 1. make sure to buy first
-        // 2. find the largest difference between buy & sell
+        int buy = prices[0];
+        int max = 0;
 
-        int buy = prices[0]; // no matter what happened, first buy
-        int sell = -1;
-
-
-        for(int i = 1; i < prices.length; i ++) {
-            // if new < buy
-            if(prices[i] < buy) {
-                buy = prices[i];
-                sell = -1;
-            }
-
-            // if new > sell, sell = new
-            if(prices[i] > sell) {
-                sell = prices[i];
-            }
-
-            // check max difference between buy and sell
-            if ((sell - buy) > result) {
-                result = sell - buy;
+        for(int i : prices) {
+            if(i > buy) {
+                max = Math.max(max, i - buy);
+            } else {
+                buy = i;
             }
         }
 
-
-        return result;
+        return max;
     }
 }
